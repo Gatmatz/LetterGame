@@ -33,12 +33,18 @@
     (road s13 s14) (road s14 s13)
     
     ; Blue line subway construction
-    (blue s2) (blue s3) (blue s5)
-    (blue s7) (blue s8) (blue s6)
+    (blue s2 s3) 
+    (blue s3 s5)
+    (blue s5 s7)
+    (blue s7 s8)
+    (blue s8 s6)
+    (blue s6 s2)
     
     ; Red line subway construction
-    (red s5) (red s7) (red s8)
-    (red s6)
+    (red s5 s7)
+    (red s7 s8)
+    (red s8 s6)
+    (red s6 s5)
     
     ; Station construction
     (station s2) (station s3) (station s7)
