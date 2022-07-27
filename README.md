@@ -259,3 +259,104 @@ The transition operators of this family of problems are:
       • at(agent, from)
 
       Operator Description: This operator transports a postman from one point to another via the blue subway line. Condition that both points are on the blue line of the metro and the postman is on the blue line.
+      
+      
+7. Move Name: move_red
+
+    Parameters: Postman agent, Point from, Point to
+
+    Conditions:
+
+    • courier (agent)
+
+    • spot(from)
+
+    • spot(to)
+
+    • at(agent, from)
+
+    • red_subway(agent)
+
+    • red(from, to)
+
+    • not (= from to)
+
+    Add List:
+
+    • at(agent, to)
+
+    Delete list:
+
+    • at(agent, from)
+
+    Operator Description: This operator transports a postman from one point to another through the red subway line. Condition that both points are on the red line of the metro and the postman is on the red line.
+
+
+8. Jump Name: pick_letter
+
+    Parameters: Postman agent, Point spot1, House house1, Letter letter1
+
+    Conditions:
+
+    • courier (agent)
+
+    • spot(spot1)
+
+    • house(house1)
+
+    letter(letter1)
+
+    • at(agent, spot1)
+
+    • has_house(spot1, house1)
+
+    • has_letter(house1, letter1)
+
+    • not(blue_subway, agent)
+
+    • not(red_subway, agent)
+
+    Add List:
+
+    • carries(agent, letter1)
+
+    Delete list:
+
+    • has_letter(house1, letter1)
+
+    Operator Description: This operator takes a letter from a house and places it in the postman's bag.
+
+
+9. Jump Name: drop_letter
+
+    Parameters: Postman agent, Spot spot1, Mailbox box1, Letter letter1
+
+    Conditions:
+
+    • courier (agent)
+
+    • spot(spot1)
+
+    • box(box1)
+
+    letter(letter1)
+
+    • at(agent, spot1)
+
+    • has_box(spot1, box1)
+
+    • carries(agent, letter1)
+
+    • not(blue_subway, agent)
+
+    • not(red_subway, agent)
+
+    Add List:
+
+    • sent(letter1)
+
+    Delete list:
+
+    • carries(agent, letter1)
+
+    Operator description: This operator sends a letter, i.e. leaves a letter from the postman's bag and places it in a mailbox.
